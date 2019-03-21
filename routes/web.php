@@ -26,4 +26,14 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->delete('agency/{id}', ['uses' => 'AgencyController@delete']);
   
     $router->put('agency/{id}', ['uses' => 'AgencyController@update']);
+
+    $router->get('listing',  ['uses' => 'ListingController@showAllListings']);
+  
+    $router->get('listing/{id}', ['uses' => 'ListingController@showOneListing']);
+  
+    $router->post('listing', ['uses' => 'ListingController@create']);
+  
+    $router->delete('listing/{id}', ['uses' => 'ListingController@delete']);
+  
+    $router->put('listing/{id}', ['uses' => 'ListingController@update']);
   });
