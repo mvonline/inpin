@@ -36,4 +36,6 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->delete('listing/{id}', ['uses' => 'ListingController@delete']);
   
     $router->put('listing/{id}', ['uses' => 'ListingController@update']);
+    
+    $router->post('distance', ['uses' => 'AgencyController@finddistance']);
   });

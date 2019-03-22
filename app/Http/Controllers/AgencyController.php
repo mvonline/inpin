@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Agency;
+use App\Distance;
 
 class AgencyController extends Controller
 
@@ -61,6 +62,12 @@ class AgencyController extends Controller
         return response('Deleted Successfully', 200);
     }
 
+    public function finddistance(Request $request){
+        
+            $dist= Distance::calculateDistance($request->latitudeFrom, $request->longitudeFrom,
+                                               $request->latitudeTo, $request->longitudeTo);
+            return response()->json($dist, 200);
+    }
 
 }    
 
