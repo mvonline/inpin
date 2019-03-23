@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Agency;
+use App\Listing;
 use App\Distance;
 
 class AgencyController extends Controller
@@ -67,6 +68,16 @@ class AgencyController extends Controller
             $dist= Distance::calculateDistance($request->latitudeFrom, $request->longitudeFrom,
                                                $request->latitudeTo, $request->longitudeTo);
             return response()->json($dist, 200);
+    }
+
+    public function getChildInCircle($id,$distance){
+        // get Agency id and $distance in meter
+        $current = Listing::where('agency_id',$id)->get();
+        echo $id,$distance;
+      //  echo $current->latitude;
+      //  echo $current->longitude;
+        dd($current);
+        return $current;
     }
 
 }    

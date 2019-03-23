@@ -38,4 +38,6 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->put('listing/{id}', ['uses' => 'ListingController@update']);
     
     $router->post('distance', ['uses' => 'AgencyController@finddistance']);
+
+    $router->get('agencychild/{id}/{distance}',['uses'=> 'AgencyController@getChildInCircle']);
   });
